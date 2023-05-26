@@ -23,10 +23,10 @@ while [ true ]
             break;
             ;;
         1)
-            echo "Not implemented!"
+            uname -on
             ;;
         2)
-            echo "Not implemented!"
+            whoami
             ;;
         3)
             echo "Not implemented!"
