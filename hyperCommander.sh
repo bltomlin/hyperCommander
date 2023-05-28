@@ -45,7 +45,37 @@ while [ true ]
                 read input
                 if [[ $(find ./ -name "$input") ]]; then
                     if [[ -f "$input" ]]; then
-                        echo "Not implemented!"
+                        while [ true ]; do
+                            echo "---------------------------------------------------------------------"
+                            echo "| 0 Back | 1 Delete | 2 Rename | 3 Make writable | 4 Make read-only |"
+                            echo "---------------------------------------------------------------------"
+                            read userChoice
+                            if [ "$userChoice" == 1 ]; then
+                                rm "$input"
+                                echo "$input has been deleted."
+                                break
+                            elif [ "$userChoice" == 2 ]; then
+                                echo "Enter the new file name:"
+                                read newName
+                                mv $input $newName
+                                echo "$input has been renamed as $newName"
+                                break
+                            elif [ "$userChoice" == 3 ]; then
+                                chmod 666 $input
+                                echo "Permissions have been updated."
+                                ls -l $input
+                                break
+                            elif [ "$userChoice" == 4 ]; then
+                                chmod 664 $input
+                                echo "Permissions have been updated."
+                                ls -l $input
+                                break
+                            elif [ "$userChoice" == 0 ]; then
+                                break
+                            else
+                                continue
+                            fi
+                        done
                     elif [[ -d "$input" ]]; then
                         cd "$input"
                         if [[ -f "$input" ]]; then
