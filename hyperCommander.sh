@@ -44,9 +44,27 @@ while [ true ]
                 echo "---------------------------------------------------"
                 read input
                 if [[ $(find ./ -name "$input") ]]; then
-                    echo "Not implemented!"
+                    if [[ -f "$input" ]]; then
+                        echo "Not implemented!"
+                    elif [[ -d "$input" ]]; then
+                        cd "$input"
+                        if [[ -f "$input" ]]; then
+                            echo "F $input"
+                        elif [[ -d "$input" ]]; then
+                            echo "D $input"
+                        else
+                            echo "Error during listing!"
+                        fi
+                    fi
                 elif [ "$input" == "up" ]; then
-                    echo "Not implemented!"
+                    cd ..
+                    if [[ -f "$item" ]]; then
+                        echo "F $item"
+                    elif [[ -d "$item" ]]; then
+                        echo "D $item"
+                    else
+                        echo "Error during listing!"
+                    fi
                 elif [ "$input" == 0 ]; then
                     break
                 else
