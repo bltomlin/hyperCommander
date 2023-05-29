@@ -8,7 +8,7 @@ In hyperCommander, you can use file commands, system variables, permissions, and
 # clone the repo
 $ git clone https://github.com/bltomlin/hyperCommander
 
-# change the working directory to WebScraper
+# change the working directory to hyperCommander
 $ cd hyperCommander
 
 # run script
