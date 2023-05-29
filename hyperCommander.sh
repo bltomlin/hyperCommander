@@ -16,7 +16,6 @@ menu() {
 }
 
 # runs an infinite until '0' is the input by user
-
 while [ true ]
     do
     menu
@@ -59,7 +58,6 @@ while [ true ]
                 echo "---------------------------------------------------"
                 
                 # logic for menu
-                
                 read input
                 if [[ $(find ./ -name "$input") ]]; then
                 
@@ -100,7 +98,6 @@ while [ true ]
                         done
                      
                     # logic for user selecting a directory
-                    
                     elif [[ -d "$input" ]]; then
                         cd "$input"
                         if [[ -f "$input" ]]; then
@@ -131,7 +128,6 @@ while [ true ]
             ;;
         
         # logic for executable commands
-        
         4)
             echo "Enter an executable name:"
             read input
